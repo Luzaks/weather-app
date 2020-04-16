@@ -1,0 +1,21 @@
+{
+  "name": "weather",
+  "version": "1.0.0",
+  "description": "A simple weather application",
+  "main": "index.js",
+  "scripts": {
+    "test": "loops",
+    "build": "node_modules/.bin/webpack"
+  },
+  "keywords": [
+    "Luzaks",
+    "weather-app"
+  ],
+  "author": "Guadalupe Rangel <kanemekanik@gmail.com>",
+  "license": "ISC",
+  "dependencies": {},
+  "devDependencies": {
+    "webpack": "^4.42.1",
+    "webpack-cli": "^3.3.11"
+  }
+}

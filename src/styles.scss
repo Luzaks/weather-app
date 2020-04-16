@@ -1,0 +1,105 @@
+@font-face {
+  font-family: 'Hype';
+  src: url('assets/HYPE.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Umpqua';
+  src: url('assets/UmpquaLight.otf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  display: flex;
+}
+
+body,
+html {
+  font-size: 16px;
+  background-color: #F4F4F4;
+  /*
+  background: url('./assets/background.png') center center;
+  background-size: cover;
+   */
+  width: 100vw;
+  height: 100vh;
+}
+
+.background-container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  .weather-header {
+    width: 100%;
+    height: 44px;
+    margin-top: 2%;
+    padding-left: 2.5%;
+    background-color: transparent;
+    justify-content: flex-start;
+    .weather-line {
+      font-family: 'Hype', sans-serif;
+      font-size: 0.9rem;
+    }
+    .weater-city {
+      display: inline-block;
+      border-bottom: solid 2px black;
+      left: -2px;
+      top: -2px;
+    }
+  }
+  .mainTag {
+    width: 100%;
+    height: calc(90% - 88px);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    .weather-icon {
+      width: 27vw;
+      height: 27vw;
+      border-radius: 100%;
+      background-color: #FFD300;
+    }
+    .degrees-container {
+      width: 100%;
+      height: 50px;
+      display: flex;
+      padding-right: 35%;
+      justify-content: flex-end;
+      position: relative;
+      .degrees {
+        font-family: 'Umpqua', sans-serif;
+        font-weight: 900;
+        font-size: 2rem;
+      }
+      &::after {
+        content: "";
+        position: absolute;
+        width: 15px;
+        height: 15px;
+        border-radius: 100%;
+        border: 5px solid #FFD300;
+        top: -40%;
+        right: 33.3%;
+      }
+    }
+  }
+  .footerTag {
+    width: 100%;
+    height: calc(8% - 44px);
+    display: flex;
+    padding-left: 2.5%;
+    flex-direction: column;
+    .weather-state,
+    .weather-advice {
+      font-family: 'Umpqua', sans-serif;
+    }
+  }
+}
