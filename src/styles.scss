@@ -60,7 +60,7 @@ html {
     justify-content: space-between;
     align-items: center;
     .weather-icon {
-      animation: float 3s ease-out infinite;
+      animation: float 5s ease-out infinite;
     }
     .degrees-container {
       width: 100%;
@@ -101,6 +101,6 @@ html {
 
 @keyframes float {
   50% {
-    transform: translate(0, 20px);
+    transform: translate(3px, 2px);
   }
 }

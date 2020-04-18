@@ -60,7 +60,7 @@ html {
   align-items: center;
 }
 .background-container .mainTag .weather-icon {
-  animation: float 3s ease-out infinite;
+  animation: float 5s ease-out infinite;
 }
 .background-container .mainTag .degrees-container {
   width: 100%;
@@ -99,7 +99,7 @@ html {
 
 @keyframes float {
   50% {
-    transform: translate(0, 20px);
+    transform: translate(3px, 2px);
   }
 }
 
