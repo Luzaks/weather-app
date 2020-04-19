@@ -22,12 +22,9 @@ html {
   font-size: 16px;
   background-color: black;
   color: white;
-  /*
-  background: url('./assets/background.png') center center;
-  background-size: cover;
-   */
   width: 100vw;
   height: 100vh;
+  overflow: hidden;
 }
 
 .background-container {
@@ -48,9 +45,9 @@ html {
   font-family: "Hype", sans-serif;
   font-size: 0.9rem;
 }
-.background-container .weather-header .weater-city {
+.background-container .weather-header .weather-city {
   display: inline-block;
-  border-bottom: solid 2px black;
+  border-bottom: solid 2px white;
   left: -2px;
   top: -2px;
 }
@@ -59,8 +56,11 @@ html {
   height: calc(90% - 88px);
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
+}
+.background-container .mainTag .weather-icon {
+  animation: float 3s ease-out infinite;
 }
 .background-container .mainTag .degrees-container {
   width: 100%;
@@ -95,6 +95,12 @@ html {
 .background-container .footerTag .weather-state,
 .background-container .footerTag .weather-advice {
   font-family: "Umpqua", sans-serif;
+}
+
+@keyframes float {
+  50% {
+    transform: translate(0, 20px);
+  }
 }
 
 /*# sourceMappingURL=styles.css.map */

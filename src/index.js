@@ -1,5 +1,5 @@
     const container = document.getElementById('container');
-    const city = document.getElementById('weater-city');
+    const city = document.getElementById('weather-city');
     const weatherState = document.getElementById('weather-state');
     const weatherAdvice = document.getElementById('weather-advice');
     const weatherIcon = document.getElementById('weather-icon');
@@ -17,12 +17,17 @@
             const {name, weather, } = response;
             const {main, description, icon} = weather[0];
 
-            weatherState.textContent = `${capitalize(description)}`;
-            if (main === 'Clouds'){
-                weatherAdvice.textContent = `Be prepare with your umbrella`;
-                let sourceIcon = `http://openweathermap.org/img/wn/${icon}@2x.png`;
-                weatherIcon.setAttribute('src', `${sourceIcon}`);
+            let sourceIcon = `http://openweathermap.org/img/wn/${icon}@2x.png`;
+            weatherIcon.setAttribute('src', `${sourceIcon}`);
+
+            weatherState.textContent = `${capitalize(main)}`;
+
+            if (main === description) {
+                weatherAdvice.textContent = `${capitalize(description)} in your city, be cautious.`;
             }
-            console.log(icon);
+            else {
+                weatherAdvice.textContent = `${capitalize(description)}`;
+            }
+
         });
 
