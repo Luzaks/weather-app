@@ -2,6 +2,7 @@
     const city = document.getElementById('weater-city');
     const weatherState = document.getElementById('weather-state');
     const weatherAdvice = document.getElementById('weather-advice');
+    const weatherIcon = document.getElementById('weather-icon');
 
     const capitalize = (string) => {
         if (typeof string !== 'string') return '';
@@ -19,10 +20,9 @@
             weatherState.textContent = `${capitalize(description)}`;
             if (main === 'Clouds'){
                 weatherAdvice.textContent = `Be prepare with your umbrella`;
+                let sourceIcon = `http://openweathermap.org/img/wn/${icon}@2x.png`;
+                weatherIcon.setAttribute('src', `${sourceIcon}`);
             }
-            console.log(name);
-            console.log(main);
-            console.log(description);
             console.log(icon);
         });
 

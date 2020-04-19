@@ -22,7 +22,8 @@
 body,
 html {
   font-size: 16px;
-  background-color: #F4F4F4;
+  background-color: black;
+  color: white;
   /*
   background: url('./assets/background.png') center center;
   background-size: cover;
@@ -62,10 +63,6 @@ html {
     justify-content: center;
     align-items: center;
     .weather-icon {
-      width: 27vw;
-      height: 27vw;
-      border-radius: 100%;
-      background-color: #FFD300;
     }
     .degrees-container {
       width: 100%;
