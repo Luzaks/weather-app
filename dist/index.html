@@ -15,31 +15,31 @@
         </header>
         <main class="mainTag">
             <img id="weather-icon"  class="weather-icon" alt="Icon" />
+            <div class="degrees-container">
+                <div id="degreesUnits" style="display: none;">Imperial</div>
+                <h4 id="degrees" class="degrees"><span id="degree-type" class="degree-type"></span></h4>
+            </div>
             <div class="card col-3 weather-card d-flex flex-column justify-content-center">
                 <div class="d-flex justify-content-between">
-                    <span class="feels_like_input">Feels like:</span>
-                    <span id="feels_like_output"></span>
+                    <span class="weather_feature">FEELS LIKE:</span>
+                    <span class="feature_value" id="feels_like_output"></span>
                 </div>
                 <div class="d-flex justify-content-between">
-                    <span class="temp_max_input">Max temperature:</span>
-                    <span id="temp_max_output"></span>
+                    <span class="weather_feature">MAX TEMP:</span>
+                    <span class="feature_value" id="temp_max_output"></span>
                 </div>
                 <div class="d-flex justify-content-between">
-                    <span class="temp_min_input">Minimal temperature:</span>
-                    <span id="temp_min_output"></span>
+                    <span class="weather_feature">MINIMAL TEMP:</span>
+                    <span class="feature_value" id="temp_min_output"></span>
                 </div>
                 <div class="d-flex justify-content-between">
-                    <span class="humidity_input">Humidity:</span>
-                    <span id="humidity_output"></span>
+                    <span class="weather_feature">HUMIDITY:</span>
+                    <span class="feature_value" id="humidity_output"></span>
                 </div>
                 <div class="d-flex justify-content-between">
-                    <span class="pressure_input">Pressure:</span>
-                    <span id="pressure_output"></span>
+                    <span class="weather_feature">PRESSURE:</span>
+                    <span class="feature_value" id="pressure_output"></span>
                 </div>
-            </div>
-            <div class="degrees-container">
-                <div id="degreesUnits">Metric</div>
-                    <h4 id="degrees" class="degrees">86<span id="degree-type" class="degree-type">C</span></h4>
             </div>
         </main>
         <footer class="footerTag">

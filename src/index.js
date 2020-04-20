@@ -22,7 +22,7 @@
             return response.json();
         })
         .then(function (response) {
-
+            console.log(response);
             const {name, weather} = response.list[0];
             const {main, description, icon} = weather[0];
 
