@@ -5,13 +5,17 @@
     const weatherIcon = document.getElementById('weather-icon');
     const degreesAmount = document.getElementById('degrees');
     const degreeUnits = document.getElementById('degreesUnits');
+    const feelsLike = document.getElementById('feels_like_output');
+    const humidityInput = document.getElementById('humidity_output');
+    const pressureInput = document.getElementById('pressure_output');
+    const maxTempInput = document.getElementById('temp_max_output');
+    const minTempInput = document.getElementById('temp_min_output');
+    let unitDegreeOutput = '';
 
     const capitalize = (string) => {
         if (typeof string !== 'string') return '';
         return string.charAt(0).toUpperCase() + string.slice(1);
     };
-
-
 
     fetch('http://api.openweathermap.org/data/2.5/find?q=' + city.innerText + '&units=' + degreeUnits.innerText + '&appid=1a0a2e83eb8dee05e7317550828823c8', {mode: 'cors'})
         .then(function (response) {
@@ -28,11 +32,17 @@
                 const { temp, feels_like, humidity, pressure, temp_max, temp_min} = main;
 
                 if (degreeUnits.innerText === 'Metric'){
-                    degreesAmount.innerText = temp + ' C'
+                    unitDegreeOutput = ' C';
+
                 } else if (degreeUnits.innerText === 'Imperial'){
-                    degreesAmount.innerText = temp +' F'
+                    unitDegreeOutput = ' F';
                 }
-                console.log(temp, feels_like, humidity, pressure, temp_max, temp_min);
+                degreesAmount.innerText = temp + unitDegreeOutput;
+                feelsLike.innerText = feels_like + unitDegreeOutput + ' º';
+                humidityInput.innerText = humidity + '%';
+                pressureInput.innerText = pressure + ' hPa';
+                maxTempInput.innerText = temp_max + unitDegreeOutput + ' º';
+                minTempInput.innerText = temp_min + unitDegreeOutput + ' º';
             };
 
             const sourceIcon = `http://openweathermap.org/img/wn/${icon}@2x.png`;
@@ -46,5 +56,4 @@
                 weatherAdvice.textContent = `${capitalize(description)}`;
             }
             degreesUnits(response);
-            console.log('hello')
         });
