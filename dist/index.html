@@ -10,7 +10,7 @@
     <div class="background-container d-flex flex-column align-items-start">
         <header class="weather-header">
             <h1 class="weather-line">
-                Today in&nbsp; <span class="weather-city" id="weather-city">Moscow</span>
+                TODAY IN&nbsp; <span class="weather-city" id="weather-city">MOSCOW</span>
             </h1>
         </header>
         <main class="mainTag">
@@ -19,33 +19,25 @@
                 <div id="degreesUnits" style="display: none;">Imperial</div>
                 <h4 id="degrees" class="degrees"><span id="degree-type" class="degree-type"></span></h4>
             </div>
-            <div class="card col-3 weather-card d-flex flex-column justify-content-center">
-                <div class="d-flex justify-content-between">
-                    <span class="weather_feature">FEELS LIKE:</span>
-                    <span class="feature_value" id="feels_like_output"></span>
+            <div class="advice-weather-output">
+                <div class="half-advice-container">
+                    <h5 class="weather-state" id="weather-state"></h5>
+                    <h6 class="weather-description" id="weather-description"></h6>
                 </div>
-                <div class="d-flex justify-content-between">
-                    <span class="weather_feature">MAX TEMP:</span>
-                    <span class="feature_value" id="temp_max_output"></span>
-                </div>
-                <div class="d-flex justify-content-between">
-                    <span class="weather_feature">MINIMAL TEMP:</span>
-                    <span class="feature_value" id="temp_min_output"></span>
-                </div>
-                <div class="d-flex justify-content-between">
-                    <span class="weather_feature">HUMIDITY:</span>
-                    <span class="feature_value" id="humidity_output"></span>
-                </div>
-                <div class="d-flex justify-content-between">
-                    <span class="weather_feature">PRESSURE:</span>
-                    <span class="feature_value" id="pressure_output"></span>
+                <div class="half-advice-container">
+                    <h5 class="weather-advice-header" id="weather-advice-header">Advice</h5>
+                    <h6 class="weather-advice-output" id="weather-advice-output"></h6>
                 </div>
             </div>
+            <ul class="weather_features_ul">
+                <li class="weather_features_li"><a class="feature_output" id="feels_like_output" href="#"></a><span class="feature_name">Feels like</span></li>
+                <li class="weather_features_li"><a class="feature_output" id="temp_max_output" href="#"></a><span class="feature_name">Max temp</span></li>
+                <li class="weather_features_li"><a class="feature_output" id="temp_min_output" href="#"></a><span class="feature_name">Min temp</span></li>
+                <li class="weather_features_li"><a class="feature_output" id="humidity_output" href="#"></a><span class="feature_name">Humidity</span></li>
+                <li class="weather_features_li"><a class="feature_output" id="pressure_output" href="#"></a><span class="feature_name">Pressure</span></li>
+                <li class="weather_features_li"><a class="feature_output" id="wind_output" href="#"></a><span class="feature_name">Wind speed</span></li>
+            </ul>
         </main>
-        <footer class="footerTag">
-            <h5 class="weather-state" id="weather-state"></h5>
-            <h6 class="weather-advice" id="weather-advice"></h6>
-        </footer>
     </div>
 </body>
 </html>
