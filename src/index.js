@@ -25,13 +25,12 @@
             return response.json();
         })
         .then(function (response) {
-            const {name, weather, wind} = response.list[0];
-            const {main, description, icon} = weather[0];
-
+            const { name, weather, wind } = response.list[0];
+            const { id, main, description, icon } = weather[0];
 
             const degreesUnits = (response) => {
                 const { main } = response.list[0];
-                const { temp, feels_like, humidity, pressure, temp_max, temp_min} = main;
+                const { id, temp, feels_like, humidity, pressure, temp_max, temp_min} = main;
 
                 if (degreeUnits.innerText === 'Metric'){
                     unitDegreeOutput = ' C';
@@ -59,6 +58,32 @@
                 weatherDescription.textContent = `${capitalize(description)} in your city, be cautious.`;
             } else {
                 weatherDescription.textContent = `${capitalize(description)}`;
+            }
+            
+            switch (true) {
+                case (id >= 200) && (id <= 232) :
+                    weatherAdvice.innerText = 'Stay indoors. Avoid water, and electric equipment.';
+                    break;
+                case (id >= 300) && (id <= 321) :
+                    weatherAdvice.innerText = 'You might experience beautiful a sunshine today.';
+                    break;
+                case (id >= 500) && (id <= 531) :
+                    weatherAdvice.innerText = 'Don\'t forget your umbrella.';
+                    break;
+                case (id >= 600) && (id <= 622) :
+                    weatherAdvice.innerText = 'Avoid overexertion. Stay dry. Go outside carefully.';
+                    break;
+                case (id >= 701) && (id <= 781) :
+                    weatherAdvice.innerText = 'Anomalies in atm. Look for official instructions.';
+                    break;
+                case id === 800 :
+                    weatherAdvice.innerText = 'Use sun protector.';
+                    break;
+                case (id >= 801) && (id <= 804) :
+                    weatherAdvice.innerText = 'Take a healthy sun bath if you can.';
+                    break;
+                default:
+                    weatherAdvice.innerText = 'Looking forward for tomorrow\'s weather.';
             }
             degreesUnits(response);
         });
