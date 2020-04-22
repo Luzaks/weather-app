@@ -38,32 +38,44 @@ body {
   color: black;
 }
 
-.background-container {
+.background-input-container {
   width: 100%;
   height: 100%;
   display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  background-color: black;
+  z-index: 3;
+}
+
+.background-output-container {
+  width: 100%;
+  height: 100%;
+  display: none;
+  align-items: flex-start;
   flex-direction: column;
 }
-.background-container .weather-header {
+.background-output-container .weather-header {
   width: 100%;
   height: 44px;
   margin: 4% 0;
   background-color: transparent;
 }
-.background-container .weather-header .weather-line {
+.background-output-container .weather-header .weather-line {
   font-family: "Hype", sans-serif;
   font-size: 2.5rem;
   font-weight: 700;
   display: flex;
   justify-content: center;
 }
-.background-container .weather-header .weather-city {
+.background-output-container .weather-header .weather-city {
   display: inline-block;
   border-bottom: solid 4px black;
   left: -2px;
   top: -2px;
 }
-.background-container .mainTag {
+.background-output-container .mainTag {
   width: 100%;
   height: calc(92% - 44px);
   display: flex;
@@ -71,18 +83,18 @@ body {
   justify-content: space-between;
   align-items: center;
 }
-.background-container .mainTag .weather-icon {
+.background-output-container .mainTag .weather-icon {
   animation: float 5s ease-out infinite;
   box-shadow: inset 0 1px rgba(34, 25, 25, 0.2), 0 1px rgba(255, 255, 255, 0.6), 0 0 7px rgba(252, 252, 252, 0.5);
   border-radius: 100%;
 }
-.background-container .mainTag .degrees-container {
+.background-output-container .mainTag .degrees-container {
   width: 100%;
   height: 50px;
   display: flex;
   justify-content: center;
 }
-.background-container .mainTag .degrees-container .degrees {
+.background-output-container .mainTag .degrees-container .degrees {
   position: relative;
   display: inline-block;
   font-family: "Umpqua", sans-serif;
@@ -90,7 +102,7 @@ body {
   font-size: 2rem;
   margin: 0;
 }
-.background-container .mainTag .degrees-container .degrees::after {
+.background-output-container .mainTag .degrees-container .degrees::after {
   content: "";
   position: absolute;
   width: 15px;
@@ -99,7 +111,7 @@ body {
   border: 4px solid #000;
   top: -33%;
 }
-.background-container .mainTag .weather_features_ul {
+.background-output-container .mainTag .weather_features_ul {
   list-style: none;
   margin: 0;
   padding: 0;
@@ -107,30 +119,30 @@ body {
   width: 100%;
   font-family: "Umpqua", sans-serif;
 }
-.background-container .mainTag .weather_features_ul .weather_features_li {
+.background-output-container .mainTag .weather_features_ul .weather_features_li {
   display: flex;
   flex-direction: column;
   flex: 1;
 }
-.background-container .mainTag .weather_features_ul .weather_features_li:nth-child(1) {
+.background-output-container .mainTag .weather_features_ul .weather_features_li:nth-child(1) {
   background: #581845;
 }
-.background-container .mainTag .weather_features_ul .weather_features_li:nth-child(2) {
+.background-output-container .mainTag .weather_features_ul .weather_features_li:nth-child(2) {
   background: #900C3F;
 }
-.background-container .mainTag .weather_features_ul .weather_features_li:nth-child(3) {
+.background-output-container .mainTag .weather_features_ul .weather_features_li:nth-child(3) {
   background: #C70039;
 }
-.background-container .mainTag .weather_features_ul .weather_features_li:nth-child(4) {
+.background-output-container .mainTag .weather_features_ul .weather_features_li:nth-child(4) {
   background: #FF5733;
 }
-.background-container .mainTag .weather_features_ul .weather_features_li:nth-child(5) {
+.background-output-container .mainTag .weather_features_ul .weather_features_li:nth-child(5) {
   background: #FFc300;
 }
-.background-container .mainTag .weather_features_ul .weather_features_li:nth-child(6) {
+.background-output-container .mainTag .weather_features_ul .weather_features_li:nth-child(6) {
   background: #FFD54F;
 }
-.background-container .mainTag .weather_features_ul .weather_features_li .feature_output {
+.background-output-container .mainTag .weather_features_ul .weather_features_li .feature_output {
   width: 100%;
   height: 4.5rem;
   text-decoration: none;
@@ -142,7 +154,7 @@ body {
   font-size: 1.5rem;
   z-index: 0;
 }
-.background-container .mainTag .weather_features_ul .weather_features_li .feature_name {
+.background-output-container .mainTag .weather_features_ul .weather_features_li .feature_name {
   display: block;
   background: rgba(0, 0, 0, 0.1);
   padding: 0.5rem;
@@ -152,21 +164,21 @@ body {
   z-index: 1;
   text-align: center;
 }
-.background-container .advice-weather-output {
+.background-output-container .advice-weather-output {
   width: 100%;
   display: flex;
   padding: 0 15%;
   justify-content: space-between;
 }
-.background-container .advice-weather-output .half-advice-container {
+.background-output-container .advice-weather-output .half-advice-container {
   width: 35%;
   display: flex;
   flex-direction: column;
 }
-.background-container .advice-weather-output .half-advice-container .weather-state,
-.background-container .advice-weather-output .half-advice-container .weather-description,
-.background-container .advice-weather-output .half-advice-container .weather-advice-header,
-.background-container .advice-weather-output .half-advice-container .weather-advice-output {
+.background-output-container .advice-weather-output .half-advice-container .weather-state,
+.background-output-container .advice-weather-output .half-advice-container .weather-description,
+.background-output-container .advice-weather-output .half-advice-container .weather-advice-header,
+.background-output-container .advice-weather-output .half-advice-container .weather-advice-output {
   font-family: "Umpqua", sans-serif;
   display: flex;
   justify-content: center;

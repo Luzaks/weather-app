@@ -7,10 +7,24 @@
     <link rel="stylesheet" type="text/css" href="../src/styles.css" />
 </head>
 <body>
-    <div class="background-container d-flex flex-column align-items-start">
+    <div id="background-input-container" class="background-input-container">
+        <div class="card searchCity">
+            <div class="card-body flex-column">
+                <label for="cityName" class="card-title">Write the name of your city</label>
+                <input type="text" id="cityName" name="name" value="Mexico City" class="">
+                <input type="radio" id="Metric" name="degreeS" value="metric">
+                <label for="Metric">Cº</label><br>
+                <input type="radio" id="Imperial" name="degreeS" value="imperial">
+                <label for="Imperial">F</label><br>
+                <button type="button" id="searchButton" class="btn btn-info btn-sm float-bt">Create</button>
+            </div>
+        </div>
+
+    </div>
+    <div id="background-output-container"  class="background-output-container">
         <header class="weather-header">
             <h1 class="weather-line">
-                TODAY IN&nbsp; <span class="weather-city" id="weather-city">Guadalajara</span>
+                TODAY IN&nbsp; <span class="weather-city" id="weather-city"></span>
             </h1>
         </header>
         <main class="mainTag">

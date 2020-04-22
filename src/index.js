@@ -1,17 +1,23 @@
     const container = document.getElementById('container');
-    const city = document.getElementById('weather-city');
+    const cityInput = document.getElementById('cityName');
+    const city = cityInput.value;
+    console.log(city);
+    const cityOutput = document.getElementById('weather-city');
     const weatherState = document.getElementById('weather-state');
     const weatherDescription = document.getElementById('weather-description');
     const weatherAdvice = document.getElementById('weather-advice-output');
     const weatherIcon = document.getElementById('weather-icon');
     const degreesAmount = document.getElementById('degrees');
-    const degreeUnits = document.getElementById('degreesUnits');
     const feelsLike = document.getElementById('feels_like_output');
     const humidityInput = document.getElementById('humidity_output');
     const pressureInput = document.getElementById('pressure_output');
     const maxTempInput = document.getElementById('temp_max_output');
     const minTempInput = document.getElementById('temp_min_output');
     const windInput = document.getElementById('wind_output');
+    const searchbutton = document.getElementById('searchButton');
+    const backgroundInput = document.getElementById('background-input-container');
+    const backgroundOutput = document.getElementById('background-output-container');
+    let checkedValue = '';
     let unitDegreeOutput = '';
     let unitWindOutput = '';
 
@@ -20,7 +26,21 @@
         return string.charAt(0).toUpperCase() + string.slice(1);
     };
 
-    fetch('http://api.openweathermap.org/data/2.5/find?q=' + city.innerText + '&units=' + degreeUnits.innerText + '&appid=1a0a2e83eb8dee05e7317550828823c8', {mode: 'cors'})
+
+    searchbutton.addEventListener('click', ev => {
+        backgroundInput.style.display = 'none';
+        backgroundOutput.style.display = 'flex';
+        const radios = document.getElementsByName('degreeS');
+
+        for (let i = 0, length = radios.length; i < length; i++) {
+            if (radios[i].checked) {
+                checkedValue = radios[i].value;
+                break;
+            }
+        }
+    });
+
+    fetch('http://api.openweathermap.org/data/2.5/find?q=' + city + '&units=' + checkedValue + '&appid=1a0a2e83eb8dee05e7317550828823c8', {mode: 'cors'})
         .then(function (response) {
             return response.json();
         })
@@ -28,15 +48,17 @@
             const { name, weather, wind } = response.list[0];
             const { id, main, description, icon } = weather[0];
 
+            cityOutput.innerText = name;
+
             const degreesUnits = (response) => {
                 const { main } = response.list[0];
                 const { id, temp, feels_like, humidity, pressure, temp_max, temp_min} = main;
 
-                if (degreeUnits.innerText === 'Metric'){
+                if (checkedValue === 'metric'){
                     unitDegreeOutput = ' C';
                     unitWindOutput = ' m/s';
 
-                } else if (degreeUnits.innerText === 'Imperial'){
+                } else if (checkedValue === 'imperial'){
                     unitDegreeOutput = ' F';
                     unitWindOutput = ' mph';
                 }
