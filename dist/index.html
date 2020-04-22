@@ -8,15 +8,17 @@
 </head>
 <body>
     <div id="background-input-container" class="background-input-container">
-        <div class="card searchCity">
-            <div class="card-body flex-column">
-                <label for="cityName" class="card-title">Write the name of your city</label>
-                <input type="text" id="cityName" name="name" value="Mexico City" class="">
-                <input type="radio" id="Metric" name="degreeS" value="metric">
-                <label for="Metric">Cº</label><br>
-                <input type="radio" id="Imperial" name="degreeS" value="imperial">
-                <label for="Imperial">F</label><br>
-                <button type="button" id="searchButton" class="btn btn-info btn-sm float-bt">Create</button>
+        <div class="card searchCity col-5">
+            <div class="card-body flex-column align-items-center">
+                <label for="cityName" class="card-title">Type the name of your city</label>
+                <input type="text" id="cityName" name="name">
+                <div class="radiosContainer">
+                    <input class="radios" type="radio" id="Metric" name="degreeS" value="metric" checked />
+                    <label class="label-degree-input" for="Metric"><span></span>Cº</label>
+                    <input class="radios" type="radio" id="Imperial" name="degreeS" value="imperial" />
+                    <label class="label-degree-input" for="Imperial"><span></span>Fº</label>
+                </div>
+                <button type="button" id="searchButton" class="btn btn-sm float-bt buttonSearch">Search</button>
             </div>
         </div>
 
@@ -30,7 +32,6 @@
         <main class="mainTag">
             <img id="weather-icon"  class="weather-icon" alt="Icon" />
             <div class="degrees-container">
-                <div id="degreesUnits" style="display: none;">Metric</div>
                 <h4 id="degrees" class="degrees"><span id="degree-type" class="degree-type"></span></h4>
             </div>
             <div class="advice-weather-output">

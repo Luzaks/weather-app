@@ -49,7 +49,60 @@ body {
   justify-content: center;
   flex-direction: column;
   background-color: black;
-  z-index: 3;
+  .searchCity {
+    font-family: 'Umpqua', sans-serif;
+    color: white;
+    background-color: transparent;
+    .card-title {
+      font-family: 'Hype', sans-serif;
+      font-size: 0.95rem;
+    }
+    #cityName {
+      padding: 7px;
+      color: deeppink;
+      border: none;
+      border-bottom: 1px solid lightseagreen;
+      margin-bottom: 5%;
+      font-size: 0.9rem;
+      background-color: transparent;
+      width: 80%;
+    }
+    .radiosContainer {
+      width: 50%;
+      justify-content: center;
+      .label-degree-input {
+        margin: 10%;
+      }
+    }
+
+    input[type="radio"] {
+      display: none;
+    }
+
+    input[type="radio"] + label {
+      color: dimgrey;
+      font-size: 0.78rem;
+      font-weight: bolder;
+    }
+
+    input[type="radio"] + label span {
+      display: inline-block;
+      width: 19px;
+      height: 19px;
+      margin: -1px 4px 0 0;
+      vertical-align: middle;
+      background: url(http://webdesigntutsplus.s3.amazonaws.com/tuts/391_checkboxes/check_radio_sheet.png) -38px top no-repeat;
+      cursor: pointer;
+    }
+
+    input[type="radio"]:checked + label span {
+      background: url(http://webdesigntutsplus.s3.amazonaws.com/tuts/391_checkboxes/check_radio_sheet.png) -57px top no-repeat;
+    }
+    .buttonSearch {
+      font-size: 0.98rem;
+      width: 30%;
+    }
+  }
 }
 
 .background-output-container {
