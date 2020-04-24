@@ -54,7 +54,10 @@ body {
 }
 .background-input-container .searchCity .card-title {
   font-family: "Hype", sans-serif;
-  font-size: 0.95rem;
+  font-size: 2.5rem;
+}
+.background-input-container .searchCity ::placeholder {
+  color: #9c9c9c;
 }
 .background-input-container .searchCity #cityName {
   padding: 7px;

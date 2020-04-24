@@ -55,7 +55,10 @@ body {
     background-color: transparent;
     .card-title {
       font-family: 'Hype', sans-serif;
-      font-size: 0.95rem;
+      font-size: 2.5rem;
+    }
+    ::placeholder {
+      color: #9c9c9c;
     }
     #cityName {
       padding: 7px;
@@ -66,6 +69,7 @@ body {
       font-size: 0.9rem;
       background-color: transparent;
       width: 80%;
+
     }
     .radiosContainer {
       width: 50%;

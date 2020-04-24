@@ -9,9 +9,10 @@
 <body>
     <div id="background-input-container" class="background-input-container">
         <div class="card searchCity col-5">
-            <div class="card-body flex-column align-items-center">
-                <label for="cityName" class="card-title">Type the name of your city</label>
-                <input type="text" id="cityName" name="name" required>
+            <form class="card-body flex-column align-items-center">
+                <h1 class="card-title text-center">What's the weather like?</h1>
+                <label for="cityName" ></label>
+                <input type="text" id="cityName" placeholder="Type the name of your city" name="name" required>
                 <div class="radiosContainer">
                     <input class="radios" type="radio" id="Metric" name="degreeS" value="metric" checked />
                     <label class="label-degree-input" for="Metric"><span></span>Cº</label>
@@ -19,7 +20,7 @@
                     <label class="label-degree-input" for="Imperial"><span></span>Fº</label>
                 </div>
                 <button type="button" id="searchButton" class="btn btn-sm float-bt buttonSearch">Search</button>
-            </div>
+            </form>
         </div>
 
     </div>
