@@ -46,4 +46,5 @@
                 weatherAdvice.textContent = `${capitalize(description)}`;
             }
             degreesUnits(response);
+            console.log('hello')
         });
