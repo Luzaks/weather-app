@@ -27,9 +27,11 @@ const capitalize = (string) => {
 
 searchButton.addEventListener('click', ev => {
   if (cityInput.value === '' || /[a-zA-Z]/.test(cityInput.value) === false) {
+    // eslint-disable-next-line func-names
     ev.onsubmit = function (e) {
       e.preventDefault();
     };
+    // eslint-disable-next-line no-alert
     alert('Name of city not properly fill.');
   } else {
     backgroundInput.style.display = 'none';
