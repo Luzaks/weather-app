@@ -15,6 +15,3 @@ export const windInput = getElem('wind_output');
 export const searchButton = getElem('searchButton');
 export const backgroundInput = getElem('background-input-container');
 export const backgroundOutput = getElem('background-output-container');
-export let checkedValue = '';
-export let unitDegreeOutput = '';
-export let unitWindOutput = '';

@@ -1,5 +1,5 @@
-import * as variables from './variables'
-import {domData} from './outputData'
+import * as variables from './variables';
+import getData from './inputData';
 
 const capitalize = (string) => {
   if (typeof string !== 'string') return '';
@@ -7,10 +7,9 @@ const capitalize = (string) => {
 };
 
 
-searchButton.addEventListener('click', ev => {
+variables.searchButton.addEventListener('click', ev => {
   if (variables.cityInput.value === '' || /[a-zA-Z]/.test(variables.cityInput.value) === false) {
-    // eslint-disable-next-line func-names
-    ev.onsubmit = function (e) {
+    ev.onsubmit = function preventing(e) {
       e.preventDefault();
     };
     // eslint-disable-next-line no-alert
@@ -18,25 +17,27 @@ searchButton.addEventListener('click', ev => {
   } else {
     variables.backgroundInput.style.display = 'none';
     variables.backgroundOutput.style.display = 'flex';
+    let checkedValue = '';
+    let unitDegreeOutput = '';
+    let unitWindOutput = '';
 
     const radioValue = () => {
       const radios = document.getElementsByName('degreeS');
-      // eslint-disable-next-line no-plusplus
-      for (let i = 0, { length } = radios; i < length; i++) {
+      for (let i = 0, { length } = radios; i < length; i += 1) {
         if (radios[i].checked) {
-          variables.checkedValue = radios[i].value;
+          checkedValue = radios[i].value;
           break;
         }
       }
 
-      return variables.checkedValue;
+      return checkedValue;
     };
     radioValue();
 
-    fetch(`http://api.openweathermap.org/data/2.5/find?q=${variables.cityInput.value}&units=${variables.checkedValue}&appid=1a0a2e83eb8dee05e7317550828823c8`, { mode: 'cors' })
-      .then((response) => response.json())
-      .then((response) => {
-        const {name, weather, wind} = response.list[0];
+
+    getData(`${variables.cityInput.value}`, `${checkedValue}`)
+      .then((response) => response).then((response) => {
+        const { name, weather, wind } = response.list[0];
         const {
           id, main, description, icon,
         } = weather[0];
@@ -48,23 +49,23 @@ searchButton.addEventListener('click', ev => {
           const { // eslint-disable-next-line camelcase
             temp, feels_like, humidity, pressure, temp_max, temp_min,
           } = main;
-          if (variables.checkedValue === 'metric') {
-            variables.unitDegreeOutput = ' C';
-            variables.unitWindOutput = ' m/s';
-          } else if (variables.checkedValue === 'imperial') {
-            variables.unitDegreeOutput = ' F';
-            variables.unitWindOutput = ' mph';
+          if (checkedValue === 'metric') {
+            unitDegreeOutput = ' C';
+            unitWindOutput = ' m/s';
+          } else if (checkedValue === 'imperial') {
+            unitDegreeOutput = ' F';
+            unitWindOutput = ' mph';
           }
-          variables.degreesAmount.innerText = temp + variables.unitDegreeOutput;
+          variables.degreesAmount.innerText = temp + unitDegreeOutput;
           // eslint-disable-next-line camelcase
-          variables.feelsLike.innerText = `${feels_like + variables.unitDegreeOutput} º`;
+          variables.feelsLike.innerText = `${feels_like + unitDegreeOutput} º`;
           variables.humidityInput.innerText = `${humidity}%`;
           variables.pressureInput.innerText = `${pressure} hPa`;
           // eslint-disable-next-line camelcase
-          variables.maxTempInput.innerText = `${temp_max + variables.unitDegreeOutput} º`;
+          variables.maxTempInput.innerText = `${temp_max + unitDegreeOutput} º`;
           // eslint-disable-next-line camelcase
-          variables.minTempInput.innerText = `${temp_min + variables.unitDegreeOutput} º`;
-          variables.windInput.innerText = wind.speed + variables.unitWindOutput;
+          variables.minTempInput.innerText = `${temp_min + unitDegreeOutput} º`;
+          variables.windInput.innerText = wind.speed + unitWindOutput;
         };
         degreesUnits(response);
 
@@ -84,7 +85,7 @@ searchButton.addEventListener('click', ev => {
             variables.weatherAdvice.innerText = 'Stay indoors. Avoid water, and electric equipment';
             break;
           case (id >= 300) && (id <= 321):
-            variables.weatherAdvice.innerText = 'You might experience beautiful a sunshine today';
+            variables.weatherAdvice.innerText = 'You might experience a beautiful sunshine today';
             break;
           case (id >= 500) && (id <= 531):
             variables.weatherAdvice.innerText = 'Don\'t forget your umbrella';
