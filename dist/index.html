@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script src="main.js" defer></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="../src/styles.css" />
+</head>
+<body>
+    <div id="background-input-container" class="background-input-container">
+        <div class="card searchCity col-5">
+            <form class="card-body flex-column align-items-center">
+                <h1 class="card-title text-center">What's the weather like?</h1>
+                <label for="cityName" ></label>
+                <input type="text" id="cityName" placeholder="Type the name of your city" name="name" required>
+                <div class="radiosContainer">
+                    <input class="radios" type="radio" id="Metric" name="degreeS" value="metric" checked />
+                    <label class="label-degree-input" for="Metric"><span></span>Cº</label>
+                    <input class="radios" type="radio" id="Imperial" name="degreeS" value="imperial" />
+                    <label class="label-degree-input" for="Imperial"><span></span>Fº</label>
+                </div>
+                <button type="button" id="searchButton" class="btn btn-sm float-bt buttonSearch">Search</button>
+            </form>
+        </div>
+
+    </div>
+    <div id="background-output-container"  class="background-output-container">
+        <header class="weather-header">
+            <h1 class="weather-line">
+                TODAY IN&nbsp; <span class="weather-city" id="weather-city"></span>
+            </h1>
+        </header>
+        <main class="mainTag">
+            <img id="weather-icon"  class="weather-icon" alt="Icon" />
+            <div class="degrees-container">
+                <h4 id="degrees" class="degrees"><span id="degree-type" class="degree-type"></span></h4>
+            </div>
+            <div class="advice-weather-output">
+                <div class="half-advice-container">
+                    <h5 class="weather-state" id="weather-state"></h5>
+                    <h6 class="weather-description" id="weather-description"></h6>
+                </div>
+                <div class="half-advice-container">
+                    <h5 class="weather-advice-header" id="weather-advice-header">Advice</h5>
+                    <h6 class="weather-advice-output" id="weather-advice-output"></h6>
+                </div>
+            </div>
+            <ul class="weather_features_ul">
+                <li class="weather_features_li"><a class="feature_output" id="feels_like_output" href="#"></a><span class="feature_name">Feels like</span></li>
+                <li class="weather_features_li"><a class="feature_output" id="temp_max_output" href="#"></a><span class="feature_name">Max temp</span></li>
+                <li class="weather_features_li"><a class="feature_output" id="temp_min_output" href="#"></a><span class="feature_name">Min temp</span></li>
+                <li class="weather_features_li"><a class="feature_output" id="humidity_output" href="#"></a><span class="feature_name">Humidity</span></li>
+                <li class="weather_features_li"><a class="feature_output" id="pressure_output" href="#"></a><span class="feature_name">Pressure</span></li>
+                <li class="weather_features_li"><a class="feature_output" id="wind_output" href="#"></a><span class="feature_name">Wind speed</span></li>
+            </ul>
+        </main>
+    </div>
+</body>
+</html>

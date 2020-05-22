@@ -1,0 +1,268 @@
+@font-face {
+  font-family: 'Hype';
+  src: url('assets/HYPE.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Umpqua';
+  src: url('assets/UmpquaLight.otf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Ugo';
+  src: url('assets/UGO-color.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  display: flex;
+}
+
+body,
+html {
+  font-size: 16px;
+  color: white;
+  width: 100vw;
+  height: 100vh;
+}
+
+body {
+  background: linear-gradient(-45deg, #900C3F, #C70039, #FF5733, #FFc300);
+  animation: gradient 15s ease infinite;
+  background-size: 400% 400%;
+  color: black;
+}
+
+.background-input-container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  background-color: black;
+  .searchCity {
+    font-family: 'Umpqua', sans-serif;
+    color: white;
+    background-color: transparent;
+    .card-title {
+      font-family: 'Hype', sans-serif;
+      font-size: 2.5rem;
+    }
+    ::placeholder {
+      color: #9c9c9c;
+    }
+    #cityName {
+      padding: 7px;
+      color: deeppink;
+      border: none;
+      border-bottom: 1px solid lightseagreen;
+      margin-bottom: 5%;
+      font-size: 0.9rem;
+      background-color: transparent;
+      width: 80%;
+
+    }
+    .radiosContainer {
+      width: 50%;
+      justify-content: center;
+      .label-degree-input {
+        margin: 10%;
+      }
+    }
+
+    input[type="radio"] {
+      display: none;
+    }
+
+    input[type="radio"] + label {
+      color: dimgrey;
+      font-size: 0.78rem;
+      font-weight: bolder;
+    }
+
+    input[type="radio"] + label span {
+      display: inline-block;
+      width: 19px;
+      height: 19px;
+      margin: -1px 4px 0 0;
+      vertical-align: middle;
+      background: url(http://webdesigntutsplus.s3.amazonaws.com/tuts/391_checkboxes/check_radio_sheet.png) -38px top no-repeat;
+      cursor: pointer;
+    }
+
+    input[type="radio"]:checked + label span {
+      background: url(http://webdesigntutsplus.s3.amazonaws.com/tuts/391_checkboxes/check_radio_sheet.png) -57px top no-repeat;
+    }
+    .buttonSearch {
+      font-size: 0.98rem;
+      width: 30%;
+    }
+  }
+}
+
+.background-output-container {
+  width: 100%;
+  height: 100%;
+  display: none;
+  align-items: flex-start;
+  flex-direction: column;
+  .weather-header {
+    width: 100%;
+    height: 44px;
+    margin: 4% 0;
+    background-color: transparent;
+    .weather-line {
+      font-family: 'Hype', sans-serif;
+      font-size: 2.5rem;
+      font-weight: 700;
+      display: flex;
+      justify-content: center;
+    }
+    .weather-city {
+      display: inline-block;
+      border-bottom: solid 4px black;
+      left: -2px;
+      top: -2px;
+    }
+  }
+  .mainTag {
+    width: 100%;
+    height: calc(92% - 44px);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    .weather-icon {
+      animation: float 5s ease-out infinite;
+      box-shadow: inset 0 1px rgba(34, 25, 25, 0.2), 0 1px rgba(255, 255, 255, 0.6), 0 0 7px rgba(252, 252, 252, 0.5);
+      border-radius: 100%;
+    }
+    .degrees-container {
+      width: 100%;
+      height: 50px;
+      display: flex;
+      justify-content: center;
+      .degrees {
+        position: relative;
+        display: inline-block;
+        font-family: 'Umpqua', sans-serif;
+        font-weight: 900;
+        font-size: 2rem;
+        margin: 0;
+        &::after {
+          content: "";
+          position: absolute;
+          width: 15px;
+          height: 15px;
+          border-radius: 100%;
+          border: 4px solid #000;
+          top: -33%;
+        }
+      }
+    }
+    .weather_features_ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      width: 100%;
+      font-family: 'Umpqua', sans-serif;
+      .weather_features_li {
+        display: flex;
+        flex-direction: column;
+        flex: 1;
+        &:nth-child(1) {
+          background: #581845;
+        }
+        &:nth-child(2) {
+          background: #900C3F;
+        }
+        &:nth-child(3) {
+          background: #C70039;
+        }
+        &:nth-child(4) {
+          background: #FF5733;
+        }
+        &:nth-child(5) {
+          background: #FFc300;
+        }
+        &:nth-child(6)  {
+          background: #FFD54F;
+        }
+        .feature_output {
+          width: 100%;
+          height: 4.5rem;
+          text-decoration: none;
+          color: inherit;
+          padding-top: 1rem;
+          display: block;
+          text-align: center;
+          overflow: hidden;
+          font-size: 1.5rem;
+          z-index: 0;
+        }
+        .feature_name {
+          display: block;
+          background: rgba(0, 0, 0, 0.1);
+          padding: 0.5rem;
+          font-size: 1.7rem;
+          margin-top: 1rem;
+          width: 100%;
+          z-index: 1;
+          text-align: center;
+        }
+      }
+    }
+  }
+  .advice-weather-output {
+    width: 100%;
+    display: flex;
+    padding: 0 15%;
+    justify-content: space-between;
+    .half-advice-container {
+      width: 35%;
+      display: flex;
+      flex-direction: column;
+      .weather-state,
+      .weather-description,
+      .weather-advice-header,
+      .weather-advice-output {
+        font-family: 'Umpqua', sans-serif;
+        display: flex;
+        justify-content: center;
+      }
+    }
+  }
+}
+
+
+
+@keyframes float {
+  50% {
+    transform: translate(0, 7px);
+  }
+  75% {
+    transform: translate(0, -7px);
+  }
+}
+
+@keyframes gradient {
+  0% {
+    background-position: 0 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0 50%;
+  }
+}
